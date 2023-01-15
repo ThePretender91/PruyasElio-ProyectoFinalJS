@@ -47,6 +47,7 @@ const mostrarDetallesSeleccion  = (infoPelicula) => {
         <p>Escritores: ${infoPelicula.Writer}</p>
         <p>Actores: ${infoPelicula.Actors}</p>
         <p>Pais: ${infoPelicula.Country}</p>
+        <p>Estrellas: ${infoPelicula.Ratings[0].Value} </p>
         
         <div class="botones-cartelera">
             <div id="contenedorBotonesCartelera" class="d-grid gap-2 d-md-block">
@@ -61,7 +62,7 @@ const mostrarDetallesSeleccion  = (infoPelicula) => {
 
         if (seleccion === 'volverCartelera') {                      
             cargarPostersCartelera(peliculas);
-            contenedorInfoPelicula.classList.toggle('contenedor');
+            contenedorInfoPelicula.classList.remove('contenedor');
         } else if (seleccion === 'irAComprar') {
             location.href = '../index.html';
         }
