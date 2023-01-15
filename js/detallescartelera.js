@@ -19,7 +19,7 @@ const cargarPostersCartelera = (peliculas) => {
 
 const buscarInfoAPI = async (nombre, apikey) => {
     try {
-        const response = await fetch(`http://www.omdbapi.com/?t=${nombre}&apikey=${apikey}`);
+        const response = await fetch(`https://www.omdbapi.com/?t=${nombre}&apikey=${apikey}`);
         const info = await response.json();
 
         mostrarDetallesSeleccion(info);        
