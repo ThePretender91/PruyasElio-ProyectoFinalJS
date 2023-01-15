@@ -1,9 +1,13 @@
 const apiKey = 'ce4f360e';
 
 const contenedorCartelera = document.getElementById('contenedor-cartelera');
+const contenedorInfoPelicula = document.getElementById('contenedor-info');
 
 
 const cargarPostersCartelera = (peliculas) => {
+    contenedorInfoPelicula.innerHTML = '';
+    contenedorInfoPelicula.classList.toggle('contenedor');
+
     peliculas.forEach(pelicula => {
         contenedorCartelera.innerHTML = contenedorCartelera.innerHTML + `
         <div id = '${pelicula.nombre}' class="contenedor-poster-pelicula col">
@@ -12,16 +16,6 @@ const cargarPostersCartelera = (peliculas) => {
         </div>`
     });
 };
-
-cargarPostersCartelera(peliculas);
-
-contenedorCartelera.addEventListener('click', (e) => {
-const nombreCarteleraPelicula = e.target.id;
-
-if (nombreCarteleraPelicula !== 'contenedor-cartelera') {
-    buscarInfoAPI(nombreCarteleraPelicula,apiKey);
-}
-});
 
 const buscarInfoAPI = async (nombre, apikey) => {
     try {
@@ -35,11 +29,12 @@ const buscarInfoAPI = async (nombre, apikey) => {
 }
 
 const mostrarDetallesSeleccion  = (infoPelicula) => {
-    const contenedorInfoPelicula = document.getElementById('contenedor-info');
+    contenedorCartelera.innerHTML = '';
+    contenedorInfoPelicula.classList.add('contenedor');
 
     contenedorInfoPelicula.innerHTML = `
     <div class="info">
-        <img src=${infoPelicula.Poster} alt=${infoPelicula.Title} width="500px" height="700px" >
+        <img src=${infoPelicula.Poster} alt=${infoPelicula.Title}>
     </div>
     <div class="info">
         <h2>${infoPelicula.Title}</h2>
@@ -51,6 +46,34 @@ const mostrarDetallesSeleccion  = (infoPelicula) => {
         <p>Director: ${infoPelicula.Director}</p>
         <p>Escritores: ${infoPelicula.Writer}</p>
         <p>Actores: ${infoPelicula.Actors}</p>
-        <p>Pais: ${infoPelicula.Country}</p>            
+        <p>Pais: ${infoPelicula.Country}</p>
+        
+        <div class="botones-cartelera">
+            <div id="contenedorBotonesCartelera" class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary" type="button" id="irAComprar">Comprar Entradas</button>
+                <button class="btn btn-secondary" type="button" id="volverCartelera">Volver</button>
+            </div>
+        </div>
     </div>`
+    
+    document.getElementById('contenedorBotonesCartelera').addEventListener('click', (e) => {
+        const seleccion = e.target.id;
+
+        if (seleccion === 'volverCartelera') {                      
+            cargarPostersCartelera(peliculas);
+            contenedorInfoPelicula.classList.toggle('contenedor');
+        } else if (seleccion === 'irAComprar') {
+            location.href = '../index.html';
+        }
+    });
 };
+
+contenedorCartelera.addEventListener('click', (e) => {
+const nombreCarteleraPelicula = e.target.id;
+
+if (nombreCarteleraPelicula !== 'contenedor-cartelera') {
+    buscarInfoAPI(nombreCarteleraPelicula,apiKey);
+}
+});
+
+cargarPostersCartelera(peliculas);

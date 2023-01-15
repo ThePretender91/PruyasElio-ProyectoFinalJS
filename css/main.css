@@ -13,9 +13,11 @@ height: 75px;
 }
 
 /* Estilado pagina index */
+body {
+    background-color: #313133;
+}
 
 .contenedor-General {
-    background-color: #313133;
     display: flex;
     flex-direction: column;
     color: white;
@@ -226,6 +228,7 @@ span {
 
 /* Estilado pagina cartelera */
 #contenedor-cartelera {
+    background-color: #313133;
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -246,12 +249,14 @@ span {
 .cartelera-nombre-pelicula {
     margin: 0;
     padding: 0;
-    font-size: large;
+    font-weight: bold;
+    font-size: larger;
+    color: #fff;
 }
 
 .contenedor {
     margin: 5px 0px;
-    border: dashed 3px #000000;
+    border: dashed 3px #fff;
     font-size: large;
     font-weight: bold;
     display: flex;
@@ -261,8 +266,17 @@ span {
 
 .info {
     width: 550px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
+    font-size: larger;
+    color: #fff;
+}
+
+.botones-cartelera {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
 }
