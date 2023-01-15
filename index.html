@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+      
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Simulador Compra Entradas</title>
+</head>
+<body>
+    <h1>Tercera Pre Entrega - Pruyas Elio</h1>
+    <main>
+        <div class="contenedor-info-pelicula">
+            <label> Seleccione el cine, luego el formato, día y horario</label>
+            <select id="pelicula">
+
+            </select>
+            <select id="formato">
+                <option value=" ">Seleccione Formato...</option>
+                <option value="2D-Subtitulada">2D-Subtitulada</option>
+                <option value="2D-Doblada">2D-Doblada</option>
+            </select>
+            <select id="fecha">
+                <option value=" ">Seleccione Dia...</option>
+                <option value="LUNES">Lunes</option>
+                <option value="MARTES">Martes</option>
+                <option value="MIERCOLES">Miercoles</option>
+                <option value="JUEVES">Jueves</option>
+                <option value="VIERNES">Viernes</option>
+                <option value="SABADO">Sabado</option>
+                <option value="DOMINGO">Domingo</option>
+            </select>
+            <select id="horario">
+                <option value=" ">Seleccione Funcion...</option>
+                <option value="12:30 hs">12:30</option>
+                <option value="16:00 hs">16:00</option>
+                <option value="19:20 hs">19:20</option>
+                <option value="22:40 hs">22:40</option>
+            </select>
+        </div>
+    
+        <ul class="detalles">
+            <li>
+                <div class="butaca"></div>
+                <small>Disponible</small>
+            </li>
+            <li>
+                <div class="butaca seleccionado"></div>
+                <small>Seleccionado</small>
+            </li>
+            <li>
+                <div class="butaca ocupado"></div>
+                <small>Ocupado</small>
+            </li>
+        </ul>
+    
+        <div class="contenedor-sala">
+            <div class="pantalla"></div>
+            <div class="fila">
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+            </div>
+            <div class="fila">
+                <div class="butaca ocupado"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca ocupado"></div>
+                <div class="butaca ocupado"></div>
+                <div class="butaca ocupado"></div>
+            </div>
+            <div class="fila">
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca ocupado"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+            </div>
+            <div class="fila">
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+            </div>
+            <div class="fila">
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca ocupado"></div>
+                <div class="butaca ocupado"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+            </div>
+            <div class="fila">
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca ocupado"></div>
+                <div class="butaca ocupado"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+                <div class="butaca"></div>
+            </div>
+        </div>
+        <div id="alertaSeleccionButacas">
+
+        </div>
+        <div class="contenedor-boton-checkout">
+            <button id="checkout" class="btn btn-primary btn-lg" > Checkout</button>
+        </div>
+    </main>
+    <div class="contenedor-checkout">
+        <div id="test" class="checkout-carrito">
+            <h3>Checkout</h3>
+            <div id="contenedor-transaccion">
+<!--                 <div class="contenedor-informacion">
+                    <div>
+                        <p>Pelicula</p>
+                        <p id="nombrePelicula">One Piece Film Red</p>
+                        <p>Formato: <span id="formatoPelicula">2D-Subtitulada</span></p>
+                        <p>Fecha: <span id="fechaHoraPelicula">MIERCOLES. 22:40 hs</span></p>
+                        <p>Cantidad Entradas: <span id="cantidadEntradas">2</span></p>
+                        <p>Precio por Entrada: $<span id="precioEntrada">800</span></p>
+                    </div>
+                    <img src="img/onepiecefilmred.jpg" width="200" alt="OnePieceFilmRed">                
+                </div>
+                <p><small>El total de la transaccion es: </small><span>$1600.</span></p>
+                <p><small>Gracias por su compra.</small></p>
+                <div class="contenedor-botones-checkout">
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-primary" type="button" id="finalizarCompra">Finalizar</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Link JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <script src="js/cartelera.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

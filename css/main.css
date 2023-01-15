@@ -1,0 +1,209 @@
+body {
+    background-color: #313133;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.butaca {
+    background-color: white;
+    height: 20px;
+    width: 25px;
+    margin: 5px;
+    border: 2.5px white solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.fila {
+    display: flex;
+}
+
+select {
+    margin: 10px 0;
+}
+
+.contenedor-info-pelicula{
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-info-pelicula label {
+    margin: 10px;
+}
+
+.contenedor-info-pelicula select {
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px 15px 5px 15px;
+}
+
+.butaca.seleccionado {
+    background-color: #00AA00;
+}
+
+.butaca.ocupado {
+    background-color: #AA0000;
+}
+
+.butaca:nth-of-type(3) {
+    margin-right: 20px;
+}
+  
+.butaca:nth-last-of-type(3) {
+    margin-left: 20px;
+}
+
+.butaca:not(.ocupado):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+
+.detalles .butaca:not(.ocupado):hover {
+    cursor: default;
+    transform: scale(1);
+}
+  
+.detalles {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.detalles li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.detalles li small {
+    margin-left: 10px;
+}
+
+.pantalla {
+    background-color: #fff;
+    height: 125px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.75);
+}
+
+.contenedor-sala {
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+span {
+    color: #000000;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.contenedor-boton-checkout {
+    display: flex;
+    justify-content: left;
+    margin: 20px 0;
+}
+
+.contenedor-checkout {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.checkout-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+}
+  
+.checkout-carrito {
+    position: relative;
+    background-color: white;
+    min-width: 500px;
+    color: black;
+    padding: 20px;
+    margin-top: -100%;
+    transition: all .5s;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+  
+.checkout-active .checkout-carrito {
+    margin-top: 0;
+}
+  
+.checkout-carrito h3 {
+    color: rgb(225, 76, 65);
+    padding-bottom: 5px;
+}
+
+.modal-carrito .producto-precio {
+    padding-top: 10px;
+}
+
+.contenedor-informacion {
+    margin-bottom: 15px;
+}
+
+.contenedor-informacion p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.contenedor-informacion p span {
+    color: #1900ff;
+    font-weight: bold;
+    font-size: larger;
+}
+
+#contenedor-transaccion p small {
+    font-weight: bold;
+}
+
+#contenedor-transaccion #nombrePelicula {
+    color: #1900ff;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.contenedor-botones-checkout {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.contenedor-informacion {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor-informacion div {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+}
+
+#contenedor-transaccion p {
+    margin: 5px 0 0;
+}
