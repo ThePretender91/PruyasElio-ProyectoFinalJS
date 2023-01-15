@@ -78,7 +78,7 @@ function verificarStorage() {
     }
 }
 
-const alert = (message) => {
+const alerta = (message) => {
     alertPlaceholder.innerHTML = '';
 
     const wrapper = document.createElement('div')
@@ -156,15 +156,15 @@ botonCheckout.addEventListener('click', (e) => {
 
         contenedorCheckout.classList.toggle('checkout-active');
     } else if (peliculaSeleccionada.selectedIndex === 0) {
-        alert('Debe seleccionar alguna pelicula');
+        alerta('Debe seleccionar alguna pelicula');
     } else if (formatoSeleccionado.selectedIndex === 0) {
-        alert('Debe seleccionar algun formato');
+        alerta('Debe seleccionar algun formato');
     } else if (fechaSeleccionada.selectedIndex === 0) {
-        alert('Debe seleccionar algun dia');
+        alerta('Debe seleccionar algun dia');
     } else if (horarioSeleccionado.selectedIndex === 0) {
-        alert('Debe seleccionar alguna funcion');
+        alerta('Debe seleccionar alguna funcion');
     } else {
-        alert('Debe seleccionar alguna butaca');
+        alerta('Debe seleccionar alguna butaca');
     }
 });
 
@@ -203,12 +203,28 @@ const mostarDatosCheckout = () => {
         const precioParcial = transaccion.reduce((acc, elemento) => acc + (elemento.precio * elemento.cantidad), 0);
         
         const precioTotal = verificarDescuento(precioParcial, codigoDescuento.value);
-        mostrarTransaccionFinalizada(precioTotal);
+
+        contenedorCheckout.classList.toggle('checkout-active');
+        Swal.fire({
+            title: 'Calculando Transaccion',
+            html: 'Verificando y aplicando descuentos',
+            timer: 3000,
+            timerProgressBar: true,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            didOpen: () => {
+                Swal.showLoading()
+            },
+        }).then((result) => {
+            mostrarTransaccionFinalizada(precioTotal);
+        })
     });
 };
 
 const mostrarTransaccionFinalizada = (precio) => {
     const contenedor = document.getElementById('contenedor-transaccion');
+    contenedorCheckout.classList.toggle('checkout-active');
 
     transaccion.forEach(transaccion => {
     contenedor.innerHTML = `
@@ -231,9 +247,18 @@ const mostrarTransaccionFinalizada = (precio) => {
             </div>
         </div>`
     });
-    
+
     document.getElementById('finalizarCompra').addEventListener('click', (e) => {
         contenedorCheckout.classList.toggle('checkout-active');
+
+        Toastify({
+            text: "Transaccion Finaliza con Exito.",
+            duration: 3000,
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to left, #00b09b, #96c93d)",
+            },
+          }).showToast();
 
         //Los datos de la transaccion se eliminan al terminar la misma
         transaccion.length = 0;

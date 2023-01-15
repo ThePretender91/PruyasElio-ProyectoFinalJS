@@ -1,4 +1,20 @@
-body {
+/* Estilado Nav */
+.navbar-nav {
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+  
+.mainlogo {
+height: 75px;
+}
+
+/* Estilado pagina index */
+
+.contenedor-General {
     background-color: #313133;
     display: flex;
     flex-direction: column;
@@ -206,4 +222,47 @@ span {
 
 #contenedor-transaccion p {
     margin: 5px 0 0;
+}
+
+/* Estilado pagina cartelera */
+#contenedor-cartelera {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.contenedor-poster-pelicula {
+    margin: 10px;
+    padding: 0.5px;
+}
+
+.contenedor-poster-pelicula:hover {
+    cursor: pointer;
+    border: #1900ff 2.5px solid;
+    margin: 7px;
+  }
+
+.cartelera-nombre-pelicula {
+    margin: 0;
+    padding: 0;
+    font-size: large;
+}
+
+.contenedor {
+    margin: 5px 0px;
+    border: dashed 3px #000000;
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+
+.info {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
 }

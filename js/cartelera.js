@@ -19,7 +19,7 @@ const peliculas =
 
     {
         id: 2,
-        nombre: "Halloween La noche final",
+        nombre: "Halloween Ends",
         origen: "Estados Unidos",
         genero: "Terror",
         direccion: "David Gordon Green",
@@ -36,7 +36,7 @@ const peliculas =
 
     {
         id: 3,
-        nombre: "Star Wars Episodio VIII",
+        nombre: "Star Wars Episode VIII",
         origen: "Estados Unidos",
         genero: "Ciencia Ficcion",
         direccion: "Rian Johnson",
@@ -70,7 +70,7 @@ const peliculas =
 
     {
         id: 5,
-        nombre: "Minions 2",
+        nombre: "Minions: The Rise of Gru",
         origen: "Estados Unidos",
         genero: "Infantil",
         direccion: "Kyle Balda",
@@ -107,19 +107,21 @@ const peliculas =
 const cargarCarteleraSelect = (peliculas) => {
     const seleccionador = document.getElementById('pelicula');
 
-    seleccionador.innerHTML = '';
-    const option = document.createElement('option');
-    option.textContent = 'Seleccione Pelicula...';
-    option.value = 0;
-    seleccionador.appendChild(option);
-
-    peliculas.forEach(pelicula => {
+    if (seleccionador!==null) {
+        seleccionador.innerHTML = '';
         const option = document.createElement('option');
-
-        option.textContent = pelicula.nombre;
-        option.value = pelicula.precio;
+        option.textContent = 'Seleccione Pelicula...';
+        option.value = 0;
         seleccionador.appendChild(option);
-    });
+    
+        peliculas.forEach(pelicula => {
+            const option = document.createElement('option');
+    
+            option.textContent = pelicula.nombre;
+            option.value = pelicula.precio;
+            seleccionador.appendChild(option);
+        });
+    }
 };
 
 cargarCarteleraSelect(peliculas);
